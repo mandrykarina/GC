@@ -1,12 +1,3 @@
-/**
- * ✅ ПРАВИЛЬНЫЙ main.cpp - ФИНАЛЬНАЯ ВЕРСИЯ
- *
- * ИСПРАВЛЕНИЯ:
- * 1. ✅ RC измеряет ТОЛЬКО время удаления корня и каскада
- * 2. ✅ MS измеряет ТОЛЬКО время mark-sweep алгоритма
- * 3. ✅ RC должен быть БЫСТРЕЕ MS (как и должно быть)
- */
-
 #include <iostream>
 #include <iomanip>
 #include <chrono>
@@ -21,21 +12,13 @@
 #include "event_logger.h"
 #include "rc_logger.h"
 
-// ============================================
-// ПАРАМЕТРЫ СИМУЛЯЦИИ
-// ============================================
-
 struct SimulationParams
 {
-    size_t heap_size_bytes = 33554432; // 32 MB default
+    size_t heap_size_bytes = 33554432;
     int num_objects = 20;
     int object_size = 64;
-    int scenario_type = 1; // 1=linear, 2=cyclic, 3=cascade
+    int scenario_type = 1;
 };
-
-// ============================================
-// ПАРСИНГ АРГУМЕНТОВ КОМАНДНОЙ СТРОКИ
-// ============================================
 
 SimulationParams parse_arguments(int argc, char *argv[])
 {
@@ -59,10 +42,7 @@ SimulationParams parse_arguments(int argc, char *argv[])
     return params;
 }
 
-// ============================================
 // РЕЗУЛЬТАТЫ ЗАПУСКА
-// ============================================
-
 struct GCResult
 {
     size_t objects_created = 0;
@@ -73,37 +53,29 @@ struct GCResult
     double execution_time_ms = 0.0;
 };
 
-// ============================================
-// ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-// ============================================
-
 void create_graph_for_scenario(int scenario_type, int num_objects,
                                std::function<void(int from, int to)> add_ref_callback)
 {
     switch (scenario_type)
     {
-    case 1: // LINEAR CHAIN
+    case 1:
         for (int i = 1; i < num_objects; ++i)
             add_ref_callback(i - 1, i);
         break;
 
-    case 2: // CYCLIC GRAPH
+    case 2:
         for (int i = 1; i < num_objects; ++i)
             add_ref_callback(i - 1, i);
         if (num_objects > 1)
-            add_ref_callback(num_objects - 1, 0); // Замыкаем цикл
+            add_ref_callback(num_objects - 1, 0);
         break;
 
-    case 3: // CASCADE TREE
+    case 3:
         for (int i = 1; i < num_objects; ++i)
             add_ref_callback(i - 1, i);
         break;
     }
 }
-
-// ============================================
-// REFERENCE COUNTING (ИЗМЕРЯЕМ ТОЛЬКО УДАЛЕНИЕ!)
-// ============================================
 
 GCResult run_reference_counting(const SimulationParams &params)
 {
@@ -117,11 +89,11 @@ GCResult run_reference_counting(const SimulationParams &params)
         RCLogger rc_logger("rc_log");
         RCHeap rc_heap(logger, rc_logger, params.heap_size_bytes);
 
-        // ✅ ФАЗА 1: ВЫДЕЛЕНИЕ ПАМЯТИ (НЕ измеряем время)
+        // ФАЗА 1: ВЫДЕЛЕНИЕ ПАМЯТИ (НЕ измеряем время)
         for (int i = 0; i < params.num_objects; ++i)
             rc_heap.allocate(i);
 
-        // ✅ ФАЗА 2: СОЗДАНИЕ ГРАФА (НЕ измеряем время)
+        // ФАЗА 2: СОЗДАНИЕ ГРАФА (НЕ измеряем время)
         rc_heap.addroot(0);
 
         create_graph_for_scenario(params.scenario_type, params.num_objects,
@@ -130,10 +102,10 @@ GCResult run_reference_counting(const SimulationParams &params)
                                       rc_heap.addref(from, to);
                                   });
 
-        // ✅ ФАЗА 3: УДАЛЕНИЕ (ИЗМЕРЯЕМ ТОЛЬКО ЭТО!)
+        // ФАЗА 3: УДАЛЕНИЕ (ИЗМЕРЯЕМ ТОЛЬКО ЭТО!)
         auto start = std::chrono::high_resolution_clock::now();
 
-        // ⏱️ ТОЛЬКО УДАЛЕНИЕ КОРНЯ И КАСКАД
+        // ТОЛЬКО УДАЛЕНИЕ КОРНЯ И КАСКАД
         rc_heap.removeroot(0);
 
         auto end = std::chrono::high_resolution_clock::now();
@@ -144,7 +116,7 @@ GCResult run_reference_counting(const SimulationParams &params)
         result.memory_freed = (params.num_objects - result.objects_left) * params.object_size;
         result.memory_leaked = result.objects_left * params.object_size;
 
-        // ✅ ЛОГ ДЛЯ ОТЛАДКИ
+        // ЛОГ ДЛЯ ОТЛАДКИ
         std::cout << "[RC_DEBUG] Time measured for removeroot+cascade only: "
                   << std::fixed << std::setprecision(3) << result.execution_time_ms << " ms\n";
     }
@@ -156,10 +128,6 @@ GCResult run_reference_counting(const SimulationParams &params)
     return result;
 }
 
-// ============================================
-// MARK & SWEEP (ИЗМЕРЯЕМ ТОЛЬКО COLLECT!)
-// ============================================
-
 GCResult run_mark_and_sweep(const SimulationParams &params)
 {
     GCResult result;
@@ -170,12 +138,12 @@ GCResult run_mark_and_sweep(const SimulationParams &params)
     {
         auto ms_gc = std::make_unique<MarkSweepGC>(params.heap_size_bytes);
 
-        // ✅ ФАЗА 1: ВЫДЕЛЕНИЕ ПАМЯТИ (НЕ измеряем время)
+        // ФАЗА 1: ВЫДЕЛЕНИЕ ПАМЯТИ (НЕ измеряем время)
         std::vector<int> object_ids;
         for (int i = 0; i < params.num_objects; ++i)
             object_ids.push_back(ms_gc->allocate(params.object_size));
 
-        // ✅ ФАЗА 2: СОЗДАНИЕ ГРАФА (НЕ измеряем время)
+        // ФАЗА 2: СОЗДАНИЕ ГРАФА (НЕ измеряем время)
         if (!object_ids.empty())
             ms_gc->make_root(object_ids[0]);
 
@@ -186,14 +154,14 @@ GCResult run_mark_and_sweep(const SimulationParams &params)
                                           ms_gc->add_reference(object_ids[from], object_ids[to]);
                                   });
 
-        // ✅ ФАЗА 3: УДАЛЕНИЕ КОРНЯ (НЕ измеряем время)
+        // ФАЗА 3: УДАЛЕНИЕ КОРНЯ (НЕ измеряем время)
         if (!object_ids.empty())
             ms_gc->remove_root(object_ids[0]);
 
-        // ✅ ФАЗА 4: MARK-SWEEP (ИЗМЕРЯЕМ ТОЛЬКО ЭТО!)
+        // ФАЗА 4: MARK-SWEEP (ИЗМЕРЯЕМ ТОЛЬКО ЭТО!)
         auto start = std::chrono::high_resolution_clock::now();
 
-        // ⏱️ ТОЛЬКО АЛГОРИТМ MARK-SWEEP
+        // ТОЛЬКО АЛГОРИТМ MARK-SWEEP
         ms_gc->collect();
 
         auto end = std::chrono::high_resolution_clock::now();
@@ -204,7 +172,7 @@ GCResult run_mark_and_sweep(const SimulationParams &params)
         result.memory_freed = (params.num_objects - result.objects_left) * params.object_size;
         result.memory_leaked = 0;
 
-        // ✅ ЛОГ ДЛЯ ОТЛАДКИ
+        // ЛОГ ДЛЯ ОТЛАДКИ
         std::cout << "[MS_DEBUG] Time measured for collect() only: "
                   << std::fixed << std::setprecision(3) << result.execution_time_ms << " ms\n";
     }
@@ -215,10 +183,6 @@ GCResult run_mark_and_sweep(const SimulationParams &params)
 
     return result;
 }
-
-// ============================================
-// ВЫВОД РЕЗУЛЬТАТОВ
-// ============================================
 
 void print_results_for_python(const SimulationParams &params,
                               const GCResult &rc_result,
@@ -265,15 +229,11 @@ void print_results_for_python(const SimulationParams &params,
     std::cout << "[/MS_STATS]\n";
 }
 
-// ============================================
-// MAIN
-// ============================================
-
 int main(int argc, char *argv[])
 {
     SimulationParams params = parse_arguments(argc, argv);
 
-    // ✅ ЛОГ НАЧАЛА
+    // ЛОГ НАЧАЛА
     std::cout << "[MAIN] Starting simulation with params: "
               << "scenario=" << params.scenario_type
               << ", objects=" << params.num_objects
@@ -285,7 +245,7 @@ int main(int argc, char *argv[])
 
     print_results_for_python(params, rc_result, ms_result);
 
-    // ✅ СРАВНЕНИЕ В КОНСОЛИ ДЛЯ ОТЛАДКИ
+    // СРАВНЕНИЕ В КОНСОЛИ ДЛЯ ОТЛАДКИ
     std::cout << "\n[COMPARISON] RC: " << rc_result.execution_time_ms << " ms vs "
               << "MS: " << ms_result.execution_time_ms << " ms\n";
     std::cout << "[COMPARISON] RC is "

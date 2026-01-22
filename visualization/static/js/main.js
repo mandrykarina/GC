@@ -1,15 +1,6 @@
-/**
- * ✅ MAIN.JS - ИСПРАВЛЕНО
- * Управление формой и запрос на бэкэнд с правильным вызовом animateOperations()
- */
-
 const API_BASE = '/api';
 let currentRCData = null;
 let currentMSData = null;
-
-// ============================================
-// ИНИЦИАЛИЗАЦИЯ
-// ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log('🚀 Initializing GC Visualizer');
@@ -21,47 +12,43 @@ document.addEventListener('DOMContentLoaded', function() {
   const simulateBtn = document.getElementById('simulate-btn');
   if (simulateBtn) {
     simulateBtn.addEventListener('click', runSimulation);
-    console.log('✓ Simulate button found and bound');
+    console.log('Simulate button found and bound');
   } else {
-    console.error('❌ Simulate button NOT found!');
+    console.error('Simulate button NOT found!');
   }
 
   // История
   const historyBtn = document.getElementById('history-btn');
   if (historyBtn) {
     historyBtn.addEventListener('click', loadHistory);
-    console.log('✓ History button found and bound');
+    console.log('History button found and bound');
   }
 
-  // ✅ Кнопки анимации RC и MS
+  // Кнопки анимации RC и MS
   const rcAnimBtn = document.getElementById('rc-anim-btn');
   if (rcAnimBtn) {
     rcAnimBtn.addEventListener('click', () => animateRC());
-    console.log('✓ RC Animation button bound');
+    console.log('RC Animation button bound');
   } else {
-    console.error('❌ RC Animation button NOT found!');
+    console.error('RC Animation button NOT found!');
   }
 
   const msAnimBtn = document.getElementById('ms-anim-btn');
   if (msAnimBtn) {
     msAnimBtn.addEventListener('click', () => animateMS());
-    console.log('✓ MS Animation button bound');
+    console.log('MS Animation button bound');
   } else {
-    console.error('❌ MS Animation button NOT found!');
+    console.error('MS Animation button NOT found!');
   }
 
-  console.log('✓ Initialization complete\n');
+  console.log('Initialization complete\n');
 });
-
-// ============================================
-// ЗАГРУЗКА КОНФИГУРАЦИИ
-// ============================================
 
 async function loadConfiguration() {
   try {
     const response = await fetch(`${API_BASE}/config`);
     const config = await response.json();
-    console.log('✅ Configuration loaded:', config);
+    console.log('Configuration loaded:', config);
 
     // Заполняем селект сценариев
     const scenarioSelect = document.getElementById('scenario-select');
@@ -73,7 +60,7 @@ async function loadConfiguration() {
         option.textContent = name;
         scenarioSelect.appendChild(option);
       });
-      console.log('✓ Scenarios loaded into select');
+      console.log('Scenarios loaded into select');
     }
 
     // Устанавливаем значения по умолчанию
@@ -85,20 +72,16 @@ async function loadConfiguration() {
       if (heapInput) heapInput.value = config.defaults.heap_size / (1024 * 1024);
       if (numObjInput) numObjInput.value = config.defaults.num_objects;
       if (sizeInput) sizeInput.value = config.defaults.object_size;
-      console.log('✓ Default values set');
+      console.log('Default values set');
     }
   } catch (error) {
-    console.error('❌ Failed to load configuration:', error);
+    console.error('Failed to load configuration:', error);
   }
 }
 
-// ============================================
-// ЗАПУСК СИМУЛЯЦИИ
-// ============================================
-
 async function runSimulation() {
   console.log('\n' + '='.repeat(70));
-  console.log('▶️ Starting simulation...');
+  console.log('Starting simulation...');
   console.log('='.repeat(70));
 
   try {
@@ -110,14 +93,14 @@ async function runSimulation() {
 
     // Валидация
     if (!heapSizeMB || !numObjects || !objectSize) {
-      alert('❌ Please fill all parameters');
+      alert('Please fill all parameters');
       return;
     }
 
     // Конвертируем MB в bytes
     const heapSize = heapSizeMB * 1024 * 1024;
 
-    console.log('📤 Sending parameters:');
+    console.log('Sending parameters:');
     console.log(` Heap Size: ${heapSizeMB} MB (${heapSize} bytes)`);
     console.log(` Objects: ${numObjects}`);
     console.log(` Object Size: ${objectSize} bytes`);
@@ -151,24 +134,24 @@ async function runSimulation() {
 
     // Проверяем ошибки
     if (result.error) {
-      console.error('❌ Simulation failed:', result.error);
+      console.error('Simulation failed:', result.error);
       alert(`Error: ${result.error}`);
       return;
     }
 
     if (!result.rc || !result.ms) {
-      console.error('❌ Invalid response structure:', result);
+      console.error('Invalid response structure:', result);
       alert('Error: Invalid response from server');
       return;
     }
 
-    console.log('✅ Simulation completed successfully!');
-    console.log('\n📊 RC Result:');
+    console.log('Simulation completed successfully!');
+    console.log('\nRC Result:');
     console.log(result.rc);
-    console.log('\n📊 MS Result:');
+    console.log('\nMS Result:');
     console.log(result.ms);
 
-    // ✅ Сохраняем результаты для последующей анимации
+    // Сохраняем результаты для последующей анимации
     currentRCData = result.rc;
     currentMSData = result.ms;
 
@@ -180,68 +163,60 @@ async function runSimulation() {
     compareStatistics(result.rc, result.ms);
 
     console.log('='.repeat(70));
-    alert('✅ Simulation complete!\n\nNow click "Animate RC" or "Animate MS" to see the visualization!');
+    alert('Simulation complete!\n\nNow click "Animate RC" or "Animate MS" to see the visualization!');
 
   } catch (error) {
-    console.error('❌ Simulation error:', error);
+    console.error('Simulation error:', error);
     alert(`Error: ${error.message}`);
     showLoadingState(false);
   }
 }
 
-// ============================================
-// АНИМАЦИЯ RC - ✅ ИСПРАВЛЕНО
-// ============================================
-
 async function animateRC() {
   if (!currentRCData) {
-    alert('❌ Please run simulation first!');
+    alert('Please run simulation first!');
     return;
   }
 
   console.log('\n' + '='.repeat(70));
-  console.log('▶️ ANIMATE RC BUTTON CLICKED');
+  console.log('ANIMATE RC BUTTON CLICKED');
   console.log('='.repeat(70));
 
   try {
     // Проверяем что данные есть
-    console.log('🔍 Checking data...');
+    console.log('Checking data...');
     console.log('currentRCData type:', typeof currentRCData);
     console.log('currentRCData:', currentRCData);
 
-    // ✅ ПРЯМОЙ ВЫЗОВ animateOperations() с данными
+    // ПРЯМОЙ ВЫЗОВ animateOperations() с данными
     if (typeof rcVisualizer !== 'undefined') {
-      console.log('\n✅ rcVisualizer found');
+      console.log('\nrcVisualizer found');
       console.log('Calling rcVisualizer.animateOperations(currentRCData)...\n');
 
       // Передаем ВЕСЬ объект с objects и references!
       await rcVisualizer.animateOperations(currentRCData);
 
-      console.log('\n✅ RC Animation completed');
+      console.log('\nRC Animation completed');
       console.log('='.repeat(70));
     } else {
-      console.error('❌ rcVisualizer not found!');
-      alert('❌ Error: Visualization module not loaded');
+      console.error('rcVisualizer not found!');
+      alert('Error: Visualization module not loaded');
     }
   } catch (error) {
-    console.error('❌ Animation error:', error);
+    console.error('Animation error:', error);
     console.error('Stack:', error.stack);
     alert(`Error: ${error.message}`);
   }
 }
 
-// ============================================
-// АНИМАЦИЯ MS - ✅ ИСПРАВЛЕНО
-// ============================================
-
 async function animateMS() {
   if (!currentMSData) {
-    alert('❌ Please run simulation first!');
+    alert('Please run simulation first!');
     return;
   }
 
   console.log('\n' + '='.repeat(70));
-  console.log('▶️ ANIMATE MS BUTTON CLICKED');
+  console.log(' ANIMATE MS BUTTON CLICKED');
   console.log('='.repeat(70));
 
   try {
@@ -250,38 +225,34 @@ async function animateMS() {
     console.log('currentMSData type:', typeof currentMSData);
     console.log('currentMSData:', currentMSData);
 
-    // ✅ ПРЯМОЙ ВЫЗОВ animateOperations() с данными
+    // ПРЯМОЙ ВЫЗОВ animateOperations() с данными
     if (typeof msVisualizer !== 'undefined') {
-      console.log('\n✅ msVisualizer found');
+      console.log('\nmsVisualizer found');
       console.log('Calling msVisualizer.animateOperations(currentMSData)...\n');
 
       // Передаем ВЕСЬ объект с objects и references!
       await msVisualizer.animateOperations(currentMSData);
 
-      console.log('\n✅ MS Animation completed');
+      console.log('\nMS Animation completed');
       console.log('='.repeat(70));
     } else {
-      console.error('❌ msVisualizer not found!');
-      alert('❌ Error: Visualization module not loaded');
+      console.error('msVisualizer not found!');
+      alert('Error: Visualization module not loaded');
     }
   } catch (error) {
-    console.error('❌ Animation error:', error);
+    console.error('Animation error:', error);
     console.error('Stack:', error.stack);
     alert(`Error: ${error.message}`);
   }
 }
 
-// ============================================
-// ОБНОВЛЕНИЕ СТАТИСТИКИ RC
-// ============================================
-
 function updateRCStatistics(result) {
   if (!result || !result.stats) {
-    console.warn('⚠️ No RC stats');
+    console.warn('No RC stats');
     return;
   }
 
-  console.log('📊 Updating RC statistics:', result.stats);
+  console.log('Updating RC statistics:', result.stats);
 
   const stats = result.stats;
   const formatBytes = (bytes) => {
@@ -305,20 +276,17 @@ function updateRCStatistics(result) {
   updateElement('rc-exec-time', (stats.execution_time_ms || 0).toFixed(2) + ' ms');
   updateElement('rc-recovery', ((stats.recovery_percent || 0).toFixed(1)) + '%');
 
-  console.log('✅ RC stats updated');
+  console.log('RC stats updated');
 }
 
-// ============================================
-// ОБНОВЛЕНИЕ СТАТИСТИКИ MS
-// ============================================
 
 function updateMSStatistics(result) {
   if (!result || !result.stats) {
-    console.warn('⚠️ No MS stats');
+    console.warn('No MS stats');
     return;
   }
 
-  console.log('📊 Updating MS statistics:', result.stats);
+  console.log('Updating MS statistics:', result.stats);
 
   const stats = result.stats;
   const formatBytes = (bytes) => {
@@ -342,23 +310,19 @@ function updateMSStatistics(result) {
   updateElement('ms-exec-time', (stats.execution_time_ms || 0).toFixed(2) + ' ms');
   updateElement('ms-recovery', ((stats.recovery_percent || 0).toFixed(1)) + '%');
 
-  console.log('✅ MS stats updated');
+  console.log('MS stats updated');
 }
-
-// ============================================
-// СРАВНЕНИЕ СТАТИСТИКИ
-// ============================================
 
 function compareStatistics(rc, ms) {
   if (!rc || !ms || !rc.stats || !ms.stats) {
-    console.warn('⚠️ Missing data for comparison');
+    console.warn('Missing data for comparison');
     return;
   }
 
   const rcStats = rc.stats;
   const msStats = ms.stats;
 
-  console.log('\n📈 COMPARISON RESULTS:');
+  console.log('\nCOMPARISON RESULTS:');
   console.log('─'.repeat(50));
   console.log('Reference Counting:');
   console.log(` Objects created: ${rcStats.objects_created}`);
@@ -377,16 +341,12 @@ function compareStatistics(rc, ms) {
   console.log('─'.repeat(50));
 }
 
-// ============================================
-// ЗАГРУЗКА ИСТОРИИ
-// ============================================
-
 async function loadHistory() {
   try {
     const response = await fetch(`${API_BASE}/history`);
     const data = await response.json();
 
-    console.log('📜 History loaded:', data);
+    console.log('History loaded:', data);
 
     if (data.success && data.history && data.history.length > 0) {
       const historyList = data.history.map((sim, idx) => {
@@ -399,13 +359,11 @@ async function loadHistory() {
       alert('No history yet');
     }
   } catch (error) {
-    console.error('❌ Failed to load history:', error);
+    console.error('Failed to load history:', error);
   }
 }
 
-// ============================================
 // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-// ============================================
 
 function showLoadingState(isLoading) {
   const btn = document.getElementById('simulate-btn');
@@ -420,4 +378,4 @@ function showLoadingState(isLoading) {
   }
 }
 
-console.log('✓ main.js loaded');
+console.log('main.js loaded');

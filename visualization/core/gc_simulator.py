@@ -1,7 +1,3 @@
-"""
-✅ ИСПРАВЛЕННЫЙ gc_simulator.py - ПРАВИЛЬНАЯ ЛОГИКА ЦИКЛОВ
-"""
-
 import subprocess
 import json
 import os
@@ -20,22 +16,20 @@ class GCSimulator:
         self.logs_dir = logs_dir
         os.makedirs(logs_dir, exist_ok=True)
         self.simulation_history = []
-        logger.info(f"✅ GCSimulator initialized")
+        logger.info(f"GCSimulator initialized")
         logger.info(f" RC executable: {rc_executable}")
         logger.info(f" MS executable: {ms_executable}")
 
     def run_simulation(self, heap_size: int, num_objects: int,
                       object_size: int, scenario_type: str) -> Tuple[Dict, Dict]:
         """
-        ✅ ГЛАВНЫЙ МЕТОД - запускает симуляцию
+        ГЛАВНЫЙ МЕТОД - запускает симуляцию
         scenario_type: 'basic', 'linear', 'cyclic', 'cycle_leak', 'cascade', 'cascade_delete'
         """
         
         # Маппинг сценариев на коды (1, 2, 3)
         scenario_map = {
             'basic': 1,
-            
-            
             'cycle_leak': 2,
         }
         
@@ -43,7 +37,7 @@ class GCSimulator:
         heap_size_mb = heap_size // (1024 * 1024)
         
         logger.info("=" * 70)
-        logger.info("🚀 STARTING SIMULATION")
+        logger.info("STARTING SIMULATION")
         logger.info("=" * 70)
         logger.info(f"Scenario: {scenario_type} (code {scenario_num})")
         logger.info(f"Heap Size: {heap_size_mb} MB")
@@ -52,12 +46,12 @@ class GCSimulator:
         logger.info("=" * 70)
         
         try:
-            # ✅ ЗАПУСКАЕМ RC СБОРЩИК
+            # ЗАПУСКАЕМ RC СБОРЩИК
             rc_result = self._run_gc_simulator(
                 self.rc_executable, 'RC', scenario_num, num_objects, object_size, heap_size_mb, scenario_type
             )
             
-            # ✅ ЗАПУСКАЕМ MS СБОРЩИК
+            # ЗАПУСКАЕМ MS СБОРЩИК
             ms_result = self._run_gc_simulator(
                 self.ms_executable, 'MS', scenario_num, num_objects, object_size, heap_size_mb, scenario_type
             )
@@ -77,12 +71,12 @@ class GCSimulator:
                 'ms_result': ms_result
             })
             
-            logger.info("✅ SIMULATION COMPLETED SUCCESSFULLY")
+            logger.info("SIMULATION COMPLETED SUCCESSFULLY")
             logger.info("=" * 70)
             return rc_result, ms_result
             
         except Exception as e:
-            logger.error(f"❌ SIMULATION FAILED: {e}", exc_info=True)
+            logger.error(f"SIMULATION FAILED: {e}", exc_info=True)
             return self._error_result('RC', str(e)), self._error_result('MS', str(e))
 
     def _run_gc_simulator(self, executable: str, gc_type: str,
@@ -90,17 +84,17 @@ class GCSimulator:
                          object_size: int, heap_size_mb: int,
                          scenario_name: str) -> Dict:
         """
-        ✅ Запускает один из сборщиков
+        Запускает один из сборщиков
         Передает аргументы: ./executable scenario num_objects object_size heap_size_mb
         """
         try:
             if not os.path.exists(executable):
                 raise FileNotFoundError(f"{gc_type} executable not found: {executable}")
             
-            logger.info(f"\n▶️ Running {gc_type} simulator...")
+            logger.info(f"\nRunning {gc_type} simulator...")
             logger.info(f" Command: {executable} {scenario_num} {num_objects} {object_size} {heap_size_mb}")
             
-            # ✅ ПЕРЕДАЕМ ПАРАМЕТРЫ В АРГУМЕНТАХ
+            # ПЕРЕДАЕМ ПАРАМЕТРЫ В АРГУМЕНТАХ
             result = subprocess.run(
                 [executable, str(scenario_num), str(num_objects), str(object_size), str(heap_size_mb)],
                 capture_output=True,
@@ -114,24 +108,24 @@ class GCSimulator:
             if result.stderr:
                 logger.debug(f"{gc_type} stderr:\n{result.stderr}")
             
-            # ✅ ПАРСИМ ВЫХОД И ГЕНЕРИРУЕМ ВИЗУАЛИЗАЦИЮ
+            # ПАРСИМ ВЫХОД И ГЕНЕРИРУЕМ ВИЗУАЛИЗАЦИЮ
             return self._parse_gc_output(result.stdout, gc_type, num_objects, object_size, scenario_name)
             
         except FileNotFoundError as e:
-            logger.error(f"❌ {gc_type} executable error: {e}")
+            logger.error(f"{gc_type} executable error: {e}")
             return self._error_result(gc_type, str(e))
         except subprocess.TimeoutExpired:
-            logger.error(f"❌ {gc_type} simulator timeout")
+            logger.error(f"{gc_type} simulator timeout")
             return self._error_result(gc_type, "Timeout")
         except Exception as e:
-            logger.error(f"❌ {gc_type} simulator error: {e}")
+            logger.error(f"{gc_type} simulator error: {e}")
             return self._error_result(gc_type, str(e))
 
     def _parse_gc_output(self, stdout: str, gc_type: str,
                         num_objects: int, object_size: int,
                         scenario_type: str) -> Dict:
         """
-        ✅ ПАРСИТ STDOUT от C++ и извлекает статистику
+        ПАРСИТ STDOUT от C++ и извлекает статистику
         """
         
         result = {
@@ -153,7 +147,7 @@ class GCSimulator:
         }
         
         try:
-            # ✅ НАЙТИ СТАТИСТИКУ В STDOUT
+            # НАЙТИ СТАТИСТИКУ В STDOUT
             start_marker = f'[{gc_type}_STATS]'
             end_marker = f'[/{gc_type}_STATS]'
             
@@ -193,7 +187,7 @@ class GCSimulator:
                             except ValueError as e:
                                 logger.warning(f"Failed to parse {key}={value}: {e}")
             
-            logger.info(f"✅ {gc_type} stats parsed:")
+            logger.info(f"{gc_type} stats parsed:")
             logger.info(f" Objects created: {result['stats']['objects_created']}")
             logger.info(f" Objects left: {result['stats']['objects_left']}")
             logger.info(f" Memory leaked: {result['stats']['leaked_memory']}")
@@ -204,7 +198,7 @@ class GCSimulator:
                 freed = result['stats']['objects_created'] - result['stats']['objects_left']
                 result['stats']['recovery_percent'] = (freed / result['stats']['objects_created']) * 100
             
-            # ✅ ГЕНЕРИРУЕМ ОБЪЕКТЫ ДЛЯ ВИЗУАЛИЗАЦИИ (С ЦИКЛАМИ!)
+            # ГЕНЕРИРУЕМ ОБЪЕКТЫ ДЛЯ ВИЗУАЛИЗАЦИИ (С ЦИКЛАМИ!)
             result['objects'], result['references'] = self._generate_visualization_objects(
                 gc_type,
                 result['stats']['objects_created'],
@@ -213,10 +207,10 @@ class GCSimulator:
             )
             
             result['success'] = True
-            logger.info(f"✅ {gc_type} visualization: {len(result['objects'])} objects, {len(result['references'])} references")
+            logger.info(f"{gc_type} visualization: {len(result['objects'])} objects, {len(result['references'])} references")
             
         except Exception as e:
-            logger.error(f"❌ Error parsing {gc_type} output: {e}")
+            logger.error(f"Error parsing {gc_type} output: {e}")
             result['success'] = False
             result.setdefault('errors', []).append(str(e))
         
@@ -227,7 +221,7 @@ class GCSimulator:
                                        objects_left: int,
                                        scenario_type: str) -> Tuple[list, list]:
         """
-        ✅ ГЕНЕРИРУЕТ объекты и ссылки для D3.js визуализации
+        ГЕНЕРИРУЕТ объекты и ссылки для D3.js визуализации
         РАЗНЫЕ ГРАФЫ ДЛЯ РАЗНЫХ СЦЕНАРИЕВ!
         """
         
@@ -235,7 +229,7 @@ class GCSimulator:
         references = []
         
         try:
-            # ✅ Создаем объекты с ПРАВИЛЬНЫМ СТАТУСОМ
+            # Создаем объекты с ПРАВИЛЬНЫМ СТАТУСОМ
             for i in range(objects_created):
                 if gc_type == 'RC':
                     # ВСЕ объекты которые не удалились - leaked
@@ -250,20 +244,20 @@ class GCSimulator:
                     else:
                         status = 'deleted'
 
-                # ✅ Корень выделяем красным цветом (объект 0 если он жив)
+                # Корень выделяем красным цветом (объект 0 если он жив)
                 is_root = (i == 0 and status != 'deleted')
                 
-                # ✅ Убираем ref_count из отображения для RC
+                # Убираем ref_count из отображения для RC
                 objects.append({
                     'id': i,
                     'status': status,
                     'size': 64,
-                    'is_root': is_root  # ✅ Корень выделен
+                    'is_root': is_root  # Корень выделен
                 })
             
-            # ✅ СОЗДАЕМ РАЗНЫЕ ГРАФЫ В ЗАВИСИМОСТИ ОТ СЦЕНАРИЯ!
+            # СОЗДАЕМ РАЗНЫЕ ГРАФЫ В ЗАВИСИМОСТИ ОТ СЦЕНАРИЯ!
             if scenario_type == 'cycle_leak' or scenario_type == 'cyclic':
-                # ✅ ЦИКЛИЧЕСКИЙ ГРАФ: 0->1->2->...->N-1->0
+                # ЦИКЛИЧЕСКИЙ ГРАФ: 0->1->2->...->N-1->0
                 logger.info(f"🌀 Generating CYCLIC graph for {scenario_type}")
                 
                 for i in range(objects_created):
@@ -279,7 +273,7 @@ class GCSimulator:
                     else:
                         status = 'removed'
                     
-                    # ✅ ПОСЛЕДНЯЯ ССЫЛКА - ОСОБАЯ (ЗАМЫКАНИЕ ЦИКЛА)
+                    # ПОСЛЕДНЯЯ ССЫЛКА - ОСОБАЯ (ЗАМЫКАНИЕ ЦИКЛА)
                     is_cycle_closure = (to_id == 0)
                     
                     references.append({
@@ -298,7 +292,7 @@ class GCSimulator:
                 logger.info(f"  Created cyclic graph with {objects_created} edges (last edge closes cycle)")
                 
             elif scenario_type == 'cascade_delete' or scenario_type == 'cascade':
-                # ✅ КАСКАДНОЕ ДЕРЕВО: 0->1->2->... (линейная цепь)
+                # КАСКАДНОЕ ДЕРЕВО: 0->1->2->... (линейная цепь)
                 logger.info(f"🌲 Generating CASCADE tree for {scenario_type}")
                 
                 for i in range(1, objects_created):
@@ -324,7 +318,7 @@ class GCSimulator:
                 logger.info(f"  Created cascade tree with {objects_created-1} edges")
                 
             else:
-                # ✅ ЛИНЕЙНАЯ ЦЕПЬ (по умолчанию)
+                # ЛИНЕЙНАЯ ЦЕПЬ (по умолчанию)
                 logger.info(f"📏 Generating LINEAR chain for {scenario_type}")
                 
                 for i in range(1, objects_created):
@@ -378,7 +372,7 @@ class GCSimulator:
         }
 
     def _save_json_results(self, rc_result: Dict, ms_result: Dict, scenario_type: str):
-        """✅ СОХРАНЯЕТ JSON РЕЗУЛЬТАТЫ В ФАЙЛЫ"""
+        """СОХРАНЯЕТ JSON РЕЗУЛЬТАТЫ В ФАЙЛЫ"""
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
             
@@ -386,16 +380,16 @@ class GCSimulator:
             rc_json_path = os.path.join(self.logs_dir, f'rc_{scenario_type}_{timestamp}.json')
             with open(rc_json_path, 'w', encoding='utf-8') as f:
                 json.dump(rc_result, f, indent=2, ensure_ascii=False)
-            logger.info(f"✅ RC JSON saved: {rc_json_path}")
+            logger.info(f"RC JSON saved: {rc_json_path}")
             
             # Сохраняем MS результат
             ms_json_path = os.path.join(self.logs_dir, f'ms_{scenario_type}_{timestamp}.json')
             with open(ms_json_path, 'w', encoding='utf-8') as f:
                 json.dump(ms_result, f, indent=2, ensure_ascii=False)
-            logger.info(f"✅ MS JSON saved: {ms_json_path}")
+            logger.info(f"MS JSON saved: {ms_json_path}")
             
         except Exception as e:
-            logger.error(f"❌ Failed to save JSON: {e}", exc_info=True)
+            logger.error(f"Failed to save JSON: {e}", exc_info=True)
 
     def get_history(self) -> list:
         """Возвращает историю симуляций"""

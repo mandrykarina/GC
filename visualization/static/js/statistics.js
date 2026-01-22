@@ -1,12 +1,3 @@
-/**
- * ✅ STATISTICS.JS - Обновление статистики от C++
- * Парсит реальные метрики от сборщиков мусора
- */
-
-// ============================================
-// ФОРМАТИРОВАНИЕ
-// ============================================
-
 function formatBytes(bytes) {
     if (bytes === 0) return '0 B';
     if (bytes < 0) return '0 B';
@@ -27,15 +18,11 @@ function formatPercent(value) {
     return value.toFixed(1) + '%';
 }
 
-// ============================================
-// ОБНОВЛЕНИЕ RC СТАТИСТИКИ
-// ============================================
-
 /**
- * ✅ Обновляет RC статистику из реальных данных C++
+ * Обновляет RC статистику из реальных данных C++
  */
 function updateRCStatistics(rcData) {
-    console.log('📊 Updating RC Statistics:', rcData);
+    console.log('Updating RC Statistics:', rcData);
     
     if (!rcData || !rcData.stats) {
         console.warn('No RC stats available');
@@ -53,7 +40,7 @@ function updateRCStatistics(rcData) {
     updateElement('rc-exec-time', formatTime(stats.execution_time_ms || 0));
     updateElement('rc-recovery', formatPercent(stats.recovery_percent || 0));
     
-    console.log(`✅ RC Statistics:`);
+    console.log(`RC Statistics:`);
     console.log(`   Created: ${stats.objects_created}`);
     console.log(`   Left: ${stats.objects_left}`);
     console.log(`   Leaked: ${formatBytes(stats.leaked_memory || 0)}`);
@@ -61,15 +48,12 @@ function updateRCStatistics(rcData) {
     console.log(`   Time: ${formatTime(stats.execution_time_ms || 0)}`);
 }
 
-// ============================================
-// ОБНОВЛЕНИЕ MS СТАТИСТИКИ
-// ============================================
 
 /**
- * ✅ Обновляет MS статистику из реальных данных C++
+ * Обновляет MS статистику из реальных данных C++
  */
 function updateMSStatistics(msData) {
-    console.log('📊 Updating MS Statistics:', msData);
+    console.log('Updating MS Statistics:', msData);
     
     if (!msData || !msData.stats) {
         console.warn('No MS stats available');
@@ -87,7 +71,7 @@ function updateMSStatistics(msData) {
     updateElement('ms-exec-time', formatTime(stats.execution_time_ms || 0));
     updateElement('ms-recovery', formatPercent(stats.recovery_percent || 0));
     
-    console.log(`✅ MS Statistics:`);
+    console.log(`MS Statistics:`);
     console.log(`   Created: ${stats.objects_created}`);
     console.log(`   Left: ${stats.objects_left}`);
     console.log(`   Leaked: ${formatBytes(stats.leaked_memory || 0)}`);
@@ -95,9 +79,6 @@ function updateMSStatistics(msData) {
     console.log(`   Time: ${formatTime(stats.execution_time_ms || 0)}`);
 }
 
-// ============================================
-// ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-// ============================================
 
 /**
  * Безопасно обновляет текст элемента
@@ -135,15 +116,11 @@ function resetMSStatistics() {
     updateElement('ms-recovery', '0%');
 }
 
-// ============================================
-// СРАВНЕНИЕ RC vs MS
-// ============================================
-
 /**
- * ✅ Сравнивает результаты RC vs MS и выводит выводы
+ * Сравнивает результаты RC vs MS и выводит выводы
  */
 function compareStatistics(rcData, msData) {
-    console.log('🔄 Comparing RC vs MS');
+    console.log('Comparing RC vs MS');
     
     if (!rcData || !msData || !rcData.stats || !msData.stats) {
         console.warn('Missing data for comparison');
@@ -153,7 +130,7 @@ function compareStatistics(rcData, msData) {
     const rc = rcData.stats;
     const ms = msData.stats;
     
-    console.log('📈 COMPARISON RESULTS:');
+    console.log('COMPARISON RESULTS:');
     console.log('─'.repeat(50));
     console.log(`Reference Counting:`);
     console.log(`  Objects created: ${rc.objects_created}`);
@@ -170,29 +147,29 @@ function compareStatistics(rcData, msData) {
     console.log(`  Recovery: ${formatPercent(ms.recovery_percent || 0)}`);
     
     // Анализ результатов
-    console.log(`\n📊 ANALYSIS:`);
+    console.log(`\nANALYSIS:`);
     
     const rcLeaked = rc.leaked_memory || 0;
     const msLeaked = ms.leaked_memory || 0;
     const leakDiff = rcLeaked - msLeaked;
     
     if (leakDiff > 0) {
-        console.log(`  ✅ MS is BETTER: ${formatBytes(leakDiff)} less leak`);
+        console.log(`  MS is BETTER: ${formatBytes(leakDiff)} less leak`);
         console.log(`     RC detected cycles (Reference Counting limitation)`);
     } else if (leakDiff < 0) {
-        console.log(`  ⚠️  RC is better: ${formatBytes(Math.abs(leakDiff))} less leak`);
+        console.log(`  RC is better: ${formatBytes(Math.abs(leakDiff))} less leak`);
     } else {
         console.log(`  ≈️  Same result: Both recovered equally`);
     }
     
     const timeDiff = (rc.execution_time_ms || 0) - (ms.execution_time_ms || 0);
     if (timeDiff > 0) {
-        console.log(`  🚀 MS is faster: ${formatTime(timeDiff)}`);
+        console.log(`  MS is faster: ${formatTime(timeDiff)}`);
     } else if (timeDiff < 0) {
-        console.log(`  🚀 RC is faster: ${formatTime(Math.abs(timeDiff))}`);
+        console.log(`  RC is faster: ${formatTime(Math.abs(timeDiff))}`);
     }
     
     console.log('─'.repeat(50));
 }
 
-console.log('✓ statistics.js loaded');
+console.log('statistics.js loaded');

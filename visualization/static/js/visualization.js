@@ -1,7 +1,3 @@
-/**
- * ✅✅✅ VISUALIZATION.JS - С ПРАВИЛЬНЫМ ОТОБРАЖЕНИЕМ ЦИКЛИЧЕСКИХ ССЫЛОК!
- */
-
 const ANIMATION_DELAY = 400;
 
 class GCVisualizer {
@@ -16,14 +12,14 @@ class GCVisualizer {
     this.isAnimating = false;
     this.currentScenario = 'basic';
     this.gcType = svgSelector === '#rc-graph' ? 'RC' : 'MS';
-    console.log(`🎨 GCVisualizer created for ${svgSelector} (${this.gcType})`);
+    console.log(`GCVisualizer created for ${svgSelector} (${this.gcType})`);
     this.setupSVG();
   }
 
   setupSVG() {
     const container = document.querySelector(this.svgSelector)?.parentElement;
     if (!container) {
-      console.error(`❌ Container for ${this.svgSelector} not found!`);
+      console.error(`Container for ${this.svgSelector} not found!`);
       return;
     }
 
@@ -32,7 +28,7 @@ class GCVisualizer {
     this.width = width;
     this.height = height;
 
-    console.log(`📐 SVG setup: ${width}x${height}`);
+    console.log(`SVG setup: ${width}x${height}`);
 
     this.svg.attr('width', width).attr('height', height);
     this.svg.selectAll('*').remove();
@@ -98,9 +94,9 @@ class GCVisualizer {
     .force('link', d3.forceLink(this.links)
         .id(d => d.id)
         .distance(100)
-        .strength(1.0))           // ← Изменил 0.8 → 1.0
-    .force('charge', d3.forceManyBody().strength(-120))  // ← Изменил -250 → -120
-    .force('center', d3.forceCenter(this.width / 2, this.height / 2).strength(1.2))  // ← Изменил 0.5 → 1.2
+        .strength(1.0))           
+    .force('charge', d3.forceManyBody().strength(-120))  
+    .force('center', d3.forceCenter(this.width / 2, this.height / 2).strength(1.2))  
 
 
     this.simulation.on('tick', () => this.draw());
@@ -115,7 +111,7 @@ class GCVisualizer {
     if (this.simulation) {
       this.simulation.stop();
     }
-    console.log(`🧹 Cleared ${this.gcType} visualizer`);
+    console.log(`Cleared ${this.gcType} visualizer`);
   }
 
   draw() {
@@ -146,12 +142,12 @@ class GCVisualizer {
         })
         .attr('stroke', d => {
             if (d.status === 'removed') return '#999999';
-            if (d.linkType === 'cycle') return '#ff0000'; // 🔴 Ярко-красный для цикла
-            return '#4ecdc4'; // 🟢 Зеленый для обычных
+            if (d.linkType === 'cycle') return '#ff0000'; // Ярко-красный для цикла
+            return '#4ecdc4'; // Зеленый для обычных
         })
         .attr('marker-end', d => {
             if (d.status === 'removed') return `url(#arrowhead-removed-${this.svgSelector})`;
-            if (d.linkType === 'cycle') return `url(#arrowhead-cycle-${this.svgSelector})`; // 🔴 Циклическая стрелка
+            if (d.linkType === 'cycle') return `url(#arrowhead-cycle-${this.svgSelector})`; // Циклическая стрелка
             return `url(#arrowhead-${this.svgSelector})`;
         })
         .attr('opacity', 0);
@@ -182,7 +178,7 @@ class GCVisualizer {
         .duration(300)
         .attr('opacity', d => d.status === 'removed' ? 0.4 : 1);
 
-    // ✅ ОТРИСОВЫВАЕМ МЕТКИ ДЛЯ ЦИКЛИЧЕСКИХ ССЫЛОК
+    // ОТРИСОВЫВАЕМ МЕТКИ ДЛЯ ЦИКЛИЧЕСКИХ ССЫЛОК
     this.drawCycleLabels();
 
     // ОБНОВЛЯЕМ КРУЖКИ
@@ -204,12 +200,12 @@ class GCVisualizer {
         .attr('stroke', '#fff')
         .attr('stroke-width', 3)
         .attr('fill', d => {
-            // ✅ КОРЕНЬ - ЯРКО-КРАСНЫЙ ДЛЯ ВСЕХ СЦЕНАРИЕВ
+            // КОРЕНЬ - ЯРКО-КРАСНЫЙ ДЛЯ ВСЕХ СЦЕНАРИЕВ
             if (d.isRoot) return '#ff0000';
-            if (d.status === 'leaked') return '#ff4444'; // 🔥 LEAKED (только для RC в цикле)
-            if (d.status === 'deleted') return '#999999'; // ⚫ DELETED
-            if (d.isMarked === false) return '#aaaaaa';  // ⚫ UNREACHABLE (только для MS)
-            return '#4ecdc4';                    // 🟢 ALIVE
+            if (d.status === 'leaked') return '#ff4444'; // LEAKED (только для RC в цикле)
+            if (d.status === 'deleted') return '#999999'; // DELETED
+            if (d.isMarked === false) return '#aaaaaa';  // UNREACHABLE (только для MS)
+            return '#4ecdc4';                    // ALIVE
         })
         .attr('opacity', 0.8)
         .call(d3.drag()
@@ -247,7 +243,7 @@ class GCVisualizer {
             return '#4ecdc4';
         })
         .attr('stroke', d => {
-            if (d.isRoot) return '#ff3333'; // 🔴 Красная обводка для корня
+            if (d.isRoot) return '#ff3333'; // Красная обводка для корня
             return '#ffffff';
         });
 
@@ -277,7 +273,7 @@ class GCVisualizer {
         .text(d => {
             const match = String(d.id).match(/\d+/);
             let text = match ? match[0] : d.id;
-            // ✅ Добавляем R для корня
+            // Добавляем R для корня
             if (d.isRoot) {
                 text = `R${text}`;
             }
@@ -310,7 +306,7 @@ class GCVisualizer {
         });
   }
 
-  // ✅ НОВЫЙ МЕТОД: Отрисовка меток для циклических ссылок
+  // Отрисовка меток для циклических ссылок
   drawCycleLabels() {
     // Находим циклические ссылки
     const cycleLinks = this.links.filter(d => d.linkType === 'cycle' && d.status !== 'removed');
@@ -377,23 +373,23 @@ class GCVisualizer {
     if (Array.isArray(data)) {
       operations = data;
     } else if (data && data.phases && data.phases.length > 0) {
-      console.log(`📋 Found ${data.phases.length} phases in data`);
+      console.log(`Found ${data.phases.length} phases in data`);
       operations = this.phasesToOperations(data.phases);
-      console.log(`✅ Converted phases to ${operations.length} operations`);
+      console.log(`Converted phases to ${operations.length} operations`);
     } else if (data && data.objects) {
-      console.log(`⚠️  No phases found, generating operations from data...`);
+      console.log(`No phases found, generating operations from data...`);
       operations = this.generateOperationsFromData(data);
     } else {
-      console.error('❌ Invalid data');
+      console.error('Invalid data');
       return;
     }
 
     if (!operations || operations.length === 0) {
-      console.warn('⚠️ No operations');
+      console.warn('No operations');
       return;
     }
 
-    console.log(`\n🎬 ${operations.length} operations total\n`);
+    console.log(`\n${operations.length} operations total\n`);
     this.clear();
     this.initSimulation();
     this.isAnimating = true;
@@ -448,13 +444,12 @@ class GCVisualizer {
     }
 
     this.isAnimating = false;
-    console.log(`\n✅ ${this.gcType} animation complete!`);
+    console.log(`\n${this.gcType} animation complete!`);
     console.log('='.repeat(70) + '\n');
   }
 
   /**
-   * ✅ ГЕНЕРАЦИЯ ОПЕРАЦИЙ ИЗ ДАННЫХ JSON
-   * Теперь MS тоже показывает циклический граф!
+   * ГЕНЕРАЦИЯ ОПЕРАЦИЙ ИЗ ДАННЫХ JSON
    */
   generateOperationsFromData(data) {
     const operations = [];
@@ -462,7 +457,7 @@ class GCVisualizer {
     const scenarioType = data.scenario || 'basic';
     const isCyclic = scenarioType && scenarioType.toLowerCase().includes('cycl');
 
-    console.log(`\n📋 ${this.gcType} Simulation:`);
+    console.log(`\n${this.gcType} Simulation:`);
     console.log(`  Scenario: ${scenarioType} ${isCyclic ? '🌀' : '📏'}`);
     console.log(`  Objects: ${objectCount}`);
     console.log(`  GC Type: ${this.gcType}`);
@@ -474,8 +469,8 @@ class GCVisualizer {
     
     console.log(`  Alive: ${aliveObjects.length}, Dead: ${deadObjects.length}, Leaked: ${leakedObjects.length}`);
     
-    // ✅ ФАЗА 1: Выделение памяти
-    console.log('\n📌 PHASE 1: Allocation');
+    // ФАЗА 1: Выделение памяти
+    console.log('\n PHASE 1: Allocation');
     for (let i = 0; i < objectCount; i++) {
       operations.push({ 
         op: 'allocate', 
@@ -487,18 +482,18 @@ class GCVisualizer {
     console.log(`   ✓ Allocated ${objectCount} objects`);
     operations.push({ op: 'pause' });
     
-    // ✅ ФАЗА 2: Создание графа
-    console.log('\n📌 PHASE 2: Building graph');
+    // ФАЗА 2: Создание графа
+    console.log('\nPHASE 2: Building graph');
     
-    // ✅ ДОБАВЛЯЕМ КОРЕНЬ (объект 0) - ДЛЯ ВСЕХ СЦЕНАРИЕВ!
+    // ДОБАВЛЯЕМ КОРЕНЬ (объект 0) - ДЛЯ ВСЕХ СЦЕНАРИЕВ!
     operations.push({ op: 'addroot', obj_id: 0 });
-    console.log(`   ✓ Object 0 is ROOT (🔴 RED)`);
+    console.log(`   ✓ Object 0 is ROOT (RED)`);
     operations.push({ op: 'pause' });
     operations.push({ op: 'pause' });
     
     if (isCyclic) {
-      // ✅ ЦИКЛИЧЕСКИЙ ГРАФ
-      console.log(`   🌀 Creating CYCLIC graph...`);
+      // ЦИКЛИЧЕСКИЙ ГРАФ
+      console.log(`   Creating CYCLIC graph...`);
       
       // Создаем линейную цепь
       for (let i = 1; i < objectCount; i++) {
@@ -512,7 +507,7 @@ class GCVisualizer {
       
       operations.push({ op: 'pause' });
       
-      // ✅ ЗАМЫКАЕМ ЦИКЛ! (ОСОБАЯ ОПЕРАЦИЯ)
+      // ЗАМЫКАЕМ ЦИКЛ! (ОСОБАЯ ОПЕРАЦИЯ)
       if (objectCount > 1) {
         operations.push({ 
           op: 'cycle_closure', 
@@ -521,13 +516,13 @@ class GCVisualizer {
           from: objectCount - 1,
           to: 0
         });
-        console.log(`   🔴🔴🔴 CYCLE CLOSURE: ${objectCount - 1} → 0 🔴🔴🔴`);
+        console.log(`   CYCLE CLOSURE: ${objectCount - 1} → 0 `);
         operations.push({ op: 'pause' });
         operations.push({ op: 'pause' });
       }
       
     } else {
-      // ✅ ЛИНЕЙНАЯ ЦЕПЬ (BASIC)
+      // ЛИНЕЙНАЯ ЦЕПЬ (BASIC)
       console.log(`   📏 Creating LINEAR chain...`);
       
       for (let i = 1; i < objectCount; i++) {
@@ -543,8 +538,8 @@ class GCVisualizer {
     operations.push({ op: 'pause' });
     operations.push({ op: 'pause' });
     
-    // ✅ ФАЗА 3: Удаление графа
-    console.log('\n📌 PHASE 3: Garbage collection');
+    // ФАЗА 3: Удаление графа
+    console.log('\nPHASE 3: Garbage collection');
     
     // Удаляем корень
     operations.push({ op: 'removeroot', obj_id: 0 });
@@ -553,23 +548,23 @@ class GCVisualizer {
     operations.push({ op: 'pause' });
     
     if (this.gcType === 'RC') {
-      console.log(`   🧮 RC: Deleting when refcount = 0`);
+      console.log(`   RC: Deleting when refcount = 0`);
       
       if (isCyclic) {
-        // ✅ RC НА ЦИКЛЕ: УТЕЧКА!
-        console.log(`   🔥 RC CANNOT HANDLE CYCLES!`);
+        // RC НА ЦИКЛЕ: УТЕЧКА!
+        console.log(`   RC CANNOT HANDLE CYCLES!`);
         
         // Помечаем все объекты как leaked
         for (let i = 0; i < objectCount; i++) {
           if (leakedObjects.some(obj => obj.id === i)) {
             operations.push({ op: 'mark_leaked', obj_id: i });
-            console.log(`   🔥 Object ${i} LEAKED (trapped in cycle)`);
+            console.log(`   Object ${i} LEAKED (trapped in cycle)`);
             operations.push({ op: 'pause' });
           }
         }
         
       } else {
-        // ✅ RC НА LINEAR: Каскадное удаление
+        // RC НА LINEAR: Каскадное удаление
         for (let i = 0; i < objectCount; i++) {
           if (deadObjects.some(obj => obj.id === i)) {
             // Удаляем ссылку на следующий объект
@@ -590,11 +585,11 @@ class GCVisualizer {
       }
       
     } else {
-      // ✅ MS НА ЛЮБОМ ГРАФЕ: Mark & Sweep
-      console.log(`   🧹 MS: Mark & Sweep algorithm`);
+      // MS НА ЛЮБОМ ГРАФЕ: Mark & Sweep
+      console.log(`   MS: Mark & Sweep algorithm`);
       
       // Фаза Mark
-      console.log(`   📍 MARK phase: Finding reachable objects`);
+      console.log(`   MARK phase: Finding reachable objects`);
       operations.push({ op: 'pause' });
       
       for (let i = 0; i < objectCount; i++) {
@@ -608,7 +603,7 @@ class GCVisualizer {
       operations.push({ op: 'pause' });
       
       // Фаза Sweep
-      console.log(`   🧹 SWEEP phase: Deleting unreachable objects`);
+      console.log(`   SWEEP phase: Deleting unreachable objects`);
       operations.push({ op: 'pause' });
       
       for (let i = 0; i < objectCount; i++) {
@@ -623,7 +618,7 @@ class GCVisualizer {
     operations.push({ op: 'pause' });
     operations.push({ op: 'pause' });
     
-    console.log(`\n✅ Generated ${operations.length} operations for ${this.gcType}`);
+    console.log(`\nGenerated ${operations.length} operations for ${this.gcType}`);
     
     return operations;
   }
@@ -633,7 +628,7 @@ class GCVisualizer {
 
     for (const phase of phases) {
       if (phase.name) {
-        console.log(`\n📌 PHASE: ${phase.name}`);
+        console.log(`\nPHASE: ${phase.name}`);
         if (phase.description) {
           console.log(`   ${phase.description}`);
         }
@@ -648,10 +643,6 @@ class GCVisualizer {
 
     return operations;
   }
-
-  // ============================================
-  // ОПЕРАЦИИ С ОБЪЕКТАМИ
-  // ============================================
 
   allocateObject(op) {
     const nodeId = op.obj_id;
@@ -673,7 +664,7 @@ class GCVisualizer {
     const node = this.nodes.find(n => n.id === `obj_${nodeId}`);
     if (node) {
       node.isRoot = true;
-      console.log(`      🔴 Object ${nodeId} is now ROOT`);
+      console.log(`      Object ${nodeId} is now ROOT`);
     }
   }
 
@@ -682,7 +673,7 @@ class GCVisualizer {
     const node = this.nodes.find(n => n.id === `obj_${nodeId}`);
     if (node) {
       node.isRoot = false;
-      console.log(`      ✓ Object ${nodeId} no longer ROOT`);
+      console.log(`      Object ${nodeId} no longer ROOT`);
     }
   }
 
@@ -691,7 +682,7 @@ class GCVisualizer {
     const node = this.nodes.find(n => n.id === `obj_${nodeId}`);
     if (node) {
       node.isMarked = false;
-      console.log(`      ⚫ Object ${nodeId} MARKED as unreachable`);
+      console.log(`      Object ${nodeId} MARKED as unreachable`);
     }
   }
 
@@ -700,7 +691,7 @@ class GCVisualizer {
     const node = this.nodes.find(n => n.id === `obj_${nodeId}`);
     if (node) {
       node.status = 'leaked';
-      console.log(`      🔥 Object ${nodeId} LEAKED (cycle detected!)`);
+      console.log(`     Object ${nodeId} LEAKED (cycle detected!)`);
     }
   }
 
@@ -728,7 +719,7 @@ class GCVisualizer {
         this.simulation.force('link').links(this.links);
         this.simulation.alpha(1).restart();
         
-        console.log(`      🟢 Added ref: ${fromId} → ${toId}`);
+        console.log(`      Added ref: ${fromId} → ${toId}`);
       }
     }
   }
@@ -741,12 +732,12 @@ class GCVisualizer {
     const target = this.nodes.find(n => n.id === `obj_${toId}`);
 
     if (source && target) {
-      // ✅ СОЗДАЕМ ЦИКЛИЧЕСКУЮ ССЫЛКУ (ОСОБЫЙ ТИП!)
+      // СОЗДАЕМ ЦИКЛИЧЕСКУЮ ССЫЛКУ (ОСОБЫЙ ТИП!)
       this.links.push({
         source: source,
         target: target,
         isRoot: false,
-        linkType: 'cycle', // 🔴 ОСОБЫЙ ТИП!
+        linkType: 'cycle', 
         status: 'active',
         isCycleClosure: true
       });
@@ -754,13 +745,13 @@ class GCVisualizer {
       this.simulation.force('link').links(this.links);
       this.simulation.alpha(1).restart();
       
-      console.log(`      🔴🔴🔴 CYCLE CLOSURE: ${fromId} → ${toId} 🔴🔴🔴`);
-      console.log(`         ⚠️  REFERENCE CYCLE CREATED!`);
+      console.log(`      CYCLE CLOSURE: ${fromId} → ${toId}`);
+      console.log(`        REFERENCE CYCLE CREATED!`);
       
       if (this.gcType === 'RC') {
-        console.log(`         🔥🔥🔥 RC WILL LEAK THESE OBJECTS!`);
+        console.log(`         RC WILL LEAK THESE OBJECTS!`);
       } else {
-        console.log(`         ✅ MS CAN HANDLE CYCLES WITH MARK PHASE`);
+        console.log(`         MS CAN HANDLE CYCLES WITH MARK PHASE`);
       }
     }
   }
@@ -793,7 +784,7 @@ class GCVisualizer {
       node.status = 'deleted';
       node.isMarked = false;
       node.isRoot = false;
-      console.log(`      🗑️  Object ${nodeId} DELETED`);
+      console.log(`      Object ${nodeId} DELETED`);
     }
 
     this.simulation.nodes(this.nodes);
@@ -805,10 +796,10 @@ class GCVisualizer {
   }
 }
 
-console.log('\n🚀 Initializing visualizers...');
+console.log('\nInitializing visualizers...');
 const rcVisualizer = new GCVisualizer('#rc-graph');
 const msVisualizer = new GCVisualizer('#ms-graph');
-console.log('✅ visualization.js loaded!\n');
+console.log('visualization.js loaded!\n');
 
 // Экспортируем для main.js
 window.rcVisualizer = rcVisualizer;

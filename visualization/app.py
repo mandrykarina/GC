@@ -1,8 +1,3 @@
-"""
-Flask Application for GC Visualizer
-✅ С правильной инициализацией GCSimulator и logs_dir
-"""
-
 from flask import Flask, render_template
 from flask_cors import CORS
 import logging
@@ -30,7 +25,7 @@ CORS(app)
 # Initialize GC Simulator
 logger.info(f"Initializing GCSimulator...")
 
-# ✅ ИСПРАВЛЕНО: используем CPP_EXECUTABLE и logs_dir из config
+# ИСПРАВЛЕНО: используем CPP_EXECUTABLE и logs_dir из config
 try:
     visualization_dir = os.path.dirname(os.path.abspath(__file__))
     
@@ -47,18 +42,18 @@ try:
     logger.info(f"Logs directory: {logs_dir}")
     logger.info(f"Executable exists: {os.path.exists(gc_exe)}")
     
-    # ✅ СОЗДАЕМ СИМУЛЯТОР С logs_dir
+    # СОЗДАЕМ СИМУЛЯТОР С logs_dir
     gc_simulator = GCSimulator(
         rc_executable=gc_exe,
         ms_executable=gc_exe,
-        logs_dir=logs_dir  # ⬅️ ПЕРЕДАЕМ logs_dir ЗДЕСЬ
+        logs_dir=logs_dir  # ПЕРЕДАЕМ logs_dir ЗДЕСЬ
     )
     
     app.gc_simulator = gc_simulator
-    logger.info("✅ GCSimulator initialized successfully")
+    logger.info("GCSimulator initialized successfully")
     
 except Exception as e:
-    logger.error(f"❌ Failed to initialize GCSimulator: {e}", exc_info=True)
+    logger.error(f"Failed to initialize GCSimulator: {e}", exc_info=True)
     app.gc_simulator = None
 
 # Register blueprints

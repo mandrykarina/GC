@@ -1,8 +1,3 @@
-"""
-Configuration for GC Visualizer
-✅ Класс конфигурации для Flask
-"""
-
 import os
 from pathlib import Path
 

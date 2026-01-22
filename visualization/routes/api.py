@@ -1,8 +1,3 @@
-"""
-API Routes for GC Visualizer
-✅ С инициализацией GCSimulator и logs_dir
-"""
-
 from flask import Blueprint, request, jsonify, current_app
 import logging
 import os
@@ -11,7 +6,7 @@ from core.gc_simulator import GCSimulator
 logger = logging.getLogger(__name__)
 api_bp = Blueprint('api', __name__)
 
-# ✅ ИНИЦИАЛИЗАЦИЯ СИМУЛЯТОРА (вызывается из app.py)
+# ИНИЦИАЛИЗАЦИЯ СИМУЛЯТОРА (вызывается из app.py)
 def init_simulator(app):
     """
     Инициализирует GCSimulator с путем к logs папке
@@ -27,16 +22,16 @@ def init_simulator(app):
         rc_exe = os.path.join(build_dir, 'gc_unified.exe')
         ms_exe = os.path.join(build_dir, 'gc_unified.exe')
         
-        # ✅ ИНИЦИАЛИЗИРУЕМ СИМУЛЯТОР С logs_dir
+        # ИНИЦИАЛИЗИРУЕМ СИМУЛЯТОР С logs_dir
         app.gc_simulator = GCSimulator(
             rc_executable=rc_exe,
             ms_executable=ms_exe,
-            logs_dir=logs_dir  # ⬅️ ПЕРЕДАЕМ logs_dir СЮДА
+            logs_dir=logs_dir  # ПЕРЕДАЕМ logs_dir СЮДА
         )
-        logger.info(f"✅ Simulator initialized with logs_dir: {logs_dir}")
+        logger.info(f"Simulator initialized with logs_dir: {logs_dir}")
         
     except Exception as e:
-        logger.error(f"❌ Failed to initialize simulator: {e}", exc_info=True)
+        logger.error(f"Failed to initialize simulator: {e}", exc_info=True)
         app.gc_simulator = None
 
 
@@ -70,7 +65,7 @@ def get_config():
 @api_bp.route('/simulate', methods=['POST'])
 def run_simulation():
     """
-    ✅ Run GC simulation
+    Run GC simulation
     """
     try:
         data = request.get_json()
@@ -98,7 +93,7 @@ def run_simulation():
         
         gc_simulator = current_app.gc_simulator
         
-        # ✅ RUN SIMULATION (gc_simulator сам сохранит JSON в logs_dir)
+        # RUN SIMULATION (gc_simulator сам сохранит JSON в logs_dir)
         rc_result, ms_result = gc_simulator.run_simulation(
             heap_size=heap_size,
             num_objects=num_objects,
@@ -106,7 +101,6 @@ def run_simulation():
             scenario_type=scenario_type
         )
         
-        # ✅ RETURN RESULTS
         return jsonify({
             'success': True,
             'parameters': {
@@ -147,4 +141,4 @@ def get_history():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 
-logger.info('✅ API routes loaded')
+logger.info('API routes loaded')

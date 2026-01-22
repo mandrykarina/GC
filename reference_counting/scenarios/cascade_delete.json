@@ -1,0 +1,18 @@
+{
+  "scenario_name": "Cascade Deletion",
+  "description": "Removing root triggers cascade delete for entire object chain",
+  "max_heap_size": 1048576,
+  "operations": [
+    {"op": "allocate", "size": 256, "description": "Allocate object A"},
+    {"op": "allocate", "size": 256, "description": "Allocate object B"},
+    {"op": "allocate", "size": 256, "description": "Allocate object C"},
+    {"op": "allocate", "size": 256, "description": "Allocate object D"},
+    {"op": "make_root", "id": 0, "description": "Root obj_0 (A)"},
+    {"op": "add_ref", "from": 0, "to": 1, "description": "A → B"},
+    {"op": "add_ref", "from": 1, "to": 2, "description": "B → C"},
+    {"op": "add_ref", "from": 2, "to": 3, "description": "C → D (chain 0→1→2→3)"},
+    {"op": "collect", "description": "Collection (all survive - rooted)"},
+    {"op": "remove_ref", "from": 0, "to": 1, "description": "Break root chain A→B"},
+    {"op": "collect", "description": "Collection (B,C,D cascade freed)"}
+  ]
+}

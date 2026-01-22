@@ -1,0 +1,958 @@
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=67108864
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=67108864
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=67108864
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=67108864
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=67108864
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=67108864
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] ADD_REF: obj_4 -> obj_0
+[Step 12] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] MAKE_ROOT: obj_0 is now a root object
+[Step 7] ADD_REF: obj_0 -> obj_1
+[Step 8] ADD_REF: obj_1 -> obj_2
+[Step 9] ADD_REF: obj_2 -> obj_3
+[Step 10] ADD_REF: obj_3 -> obj_4
+[Step 11] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] ALLOCATE: obj_5 (size=8 bytes)
+[Step 7] ALLOCATE: obj_6 (size=8 bytes)
+[Step 8] ALLOCATE: obj_7 (size=8 bytes)
+[Step 9] ALLOCATE: obj_8 (size=8 bytes)
+[Step 10] ALLOCATE: obj_9 (size=8 bytes)
+[Step 11] MAKE_ROOT: obj_0 is now a root object
+[Step 12] ADD_REF: obj_0 -> obj_1
+[Step 13] ADD_REF: obj_1 -> obj_2
+[Step 14] ADD_REF: obj_2 -> obj_3
+[Step 15] ADD_REF: obj_3 -> obj_4
+[Step 16] ADD_REF: obj_4 -> obj_5
+[Step 17] ADD_REF: obj_5 -> obj_6
+[Step 18] ADD_REF: obj_6 -> obj_7
+[Step 19] ADD_REF: obj_7 -> obj_8
+[Step 20] ADD_REF: obj_8 -> obj_9
+[Step 21] ADD_REF: obj_9 -> obj_0
+[Step 22] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
+
+=== Reference Counting GC Session Started ===
+[Step 0] GC initialized with max_heap=33554432
+[Step 1] ALLOCATE: obj_0 (size=8 bytes)
+[Step 2] ALLOCATE: obj_1 (size=8 bytes)
+[Step 3] ALLOCATE: obj_2 (size=8 bytes)
+[Step 4] ALLOCATE: obj_3 (size=8 bytes)
+[Step 5] ALLOCATE: obj_4 (size=8 bytes)
+[Step 6] ALLOCATE: obj_5 (size=8 bytes)
+[Step 7] ALLOCATE: obj_6 (size=8 bytes)
+[Step 8] ALLOCATE: obj_7 (size=8 bytes)
+[Step 9] ALLOCATE: obj_8 (size=8 bytes)
+[Step 10] ALLOCATE: obj_9 (size=8 bytes)
+[Step 11] MAKE_ROOT: obj_0 is now a root object
+[Step 12] ADD_REF: obj_0 -> obj_1
+[Step 13] ADD_REF: obj_1 -> obj_2
+[Step 14] ADD_REF: obj_2 -> obj_3
+[Step 15] ADD_REF: obj_3 -> obj_4
+[Step 16] ADD_REF: obj_4 -> obj_5
+[Step 17] ADD_REF: obj_5 -> obj_6
+[Step 18] ADD_REF: obj_6 -> obj_7
+[Step 19] ADD_REF: obj_7 -> obj_8
+[Step 20] ADD_REF: obj_8 -> obj_9
+[Step 21] ADD_REF: obj_9 -> obj_0
+[Step 22] REMOVE_ROOT: obj_0 is no longer a root
+=== Reference Counting GC Session Ended ===
